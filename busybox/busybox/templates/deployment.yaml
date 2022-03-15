@@ -17,10 +17,3 @@ spec:
       containers:
         - name: busybox
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          command:
-            - echo
-            - siema
-            - "&&"
-            - tail
-            - -f
-            - /dev/null
