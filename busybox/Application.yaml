@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://gitlab.com/paluszkiewiczHome/argo-test.git
     targetRevision: HEAD
-    path: dev
+    path: busybox
   destination:
     server: https://kubernetes.default.svc
     namespace: buxybox
