@@ -1,18 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: myapp-argo-application
+  name: busybox-argo-cd-app
   namespace: argocd
 spec:
   project: default
 
   source:
-    repoURL: https://gitlab.com/nanuchi/argocd-app-config.git
+    repoURL: https://gitlab.com/paluszkiewiczHome/argo-test.git
     targetRevision: HEAD
     path: dev
   destination:
     server: https://kubernetes.default.svc
-    namespace: myapp
+    namespace: buxybox
 
   syncPolicy:
     syncOptions:
