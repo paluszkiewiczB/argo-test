@@ -17,5 +17,5 @@ spec:
       containers:
         - name: busybox
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          command: [ "/bin/bash", "-c", "--" ]
+          command: [ "/bin/sh", "-c", "--" ]
           args: [ "while true; do sleep 30; done;" ]
