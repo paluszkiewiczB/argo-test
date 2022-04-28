@@ -9,10 +9,10 @@ spec:
   source:
     repoURL: https://gitlab.com/paluszkiewiczHome/argo-test.git
     targetRevision: HEAD
-    path: busybox
+    path: appOfApps
   destination:
     server: https://kubernetes.default.svc
-    namespace: buxybox
+    namespace: argocd
 
   syncPolicy:
     syncOptions:
