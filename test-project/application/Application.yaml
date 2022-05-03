@@ -1,0 +1,23 @@
+#apiVersion: argoproj.io/v1alpha1
+#kind: Application
+#metadata:
+#  name: busybox-argo-cd-app
+#  namespace: argocd
+#spec:
+#  project: default
+#
+#  source:
+#    repoURL: https://gitlab.com/paluszkiewiczHome/argo-test.git
+#    targetRevision: HEAD
+#    path: busybox4
+#  destination:
+#    server: https://kubernetes.default.svc
+#    namespace: buxybox
+#
+#  syncPolicy:
+#    syncOptions:
+#      - CreateNamespace=true
+#
+#    automated:
+#      selfHeal: true
+#      prune: true
