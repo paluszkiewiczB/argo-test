@@ -1,26 +1,26 @@
-apiVersion: argoproj.io/v1alpha1
-kind: ApplicationSet
-metadata:
-  name: nested-test-project
-spec:
-  generators:
-    - git:
-        repoURL: {{ .Values.repositories.test.url }}
-        revision: HEAD
-        directories:
-          - path: "test-project/application/*"
-  template:
-    metadata:
-      name: "{{"{{"}}path.basename}}"
-    spec:
-      project: default
-      source:
-        repoURL: "{{ .Values.repositories.test.url }}"
-        targetRevision: HEAD
-        path: "{{"{{"}}path}}"
-      destination:
-        server: https://kubernetes.default.svc
-        namespace: test-project
-      syncPolicy:
-        syncOptions:
-          - CreateNamespace=true
+#apiVersion: argoproj.io/v1alpha1
+#kind: ApplicationSet
+#metadata:
+#  name: nested-test-project
+#spec:
+#  generators:
+#    - git:
+#        repoURL: {{ .Values.repositories.test.url }}
+#        revision: HEAD
+#        directories:
+#          - path: "test-project/application/*"
+#  template:
+#    metadata:
+#      name: "{{"{{"}}path.basename}}"
+#    spec:
+#      project: default
+#      source:
+#        repoURL: "{{ .Values.repositories.test.url }}"
+#        targetRevision: HEAD
+#        path: "{{"{{"}}path}}"
+#      destination:
+#        server: https://kubernetes.default.svc
+#        namespace: test-project
+#      syncPolicy:
+#        syncOptions:
+#          - CreateNamespace=true
