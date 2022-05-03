@@ -8,7 +8,7 @@ spec:
         repoURL: {{ .Values.repositories.test.url }}
         revision: HEAD
         directories:
-          - path: test-project/application/*
+          - path: "test-project/application/*"
   template:
     metadata:
       name: "{{"{{"}}path.basename}}"
