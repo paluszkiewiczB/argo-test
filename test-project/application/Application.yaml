@@ -11,6 +11,7 @@ spec:
     path: test-project/application/busybox3
   destination:
     server: https://kubernetes.default.svc
+    namespace: test-project
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
@@ -31,6 +32,7 @@ spec:
     path: test-project/application/busybox4
   destination:
     server: https://kubernetes.default.svc
+    namespace: test-project
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
