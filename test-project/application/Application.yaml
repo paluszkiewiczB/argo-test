@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://gitlab.com/paluszkiewiczHome/argo-test.git
     targetRevision: HEAD
-    path: test-project/application/busybox3
+    path: test-project/busybox
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:
