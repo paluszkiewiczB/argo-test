@@ -9,7 +9,7 @@
   "spec": {
     "template": {
       "metadata": {
-        "name": "my-private-repo",
+        "name": "my-private-repo-sealed",
         "namespace": "argocd",
         "creationTimestamp": null,
         "labels": {
