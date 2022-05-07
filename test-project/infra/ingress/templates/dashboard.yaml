@@ -1,4 +1,12 @@
 apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: add-dashboard-prefix
+spec:
+  addPrefix:
+    prefix: /dashboard
+---
+apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: dashboard
