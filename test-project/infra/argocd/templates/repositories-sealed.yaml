@@ -2,7 +2,7 @@
   "kind": "SealedSecret",
   "apiVersion": "bitnami.com/v1alpha1",
   "metadata": {
-    "name": "my-private-repo",
+    "name": "my-private-repo-sealed",
     "namespace": "argocd",
     "creationTimestamp": null
   },
