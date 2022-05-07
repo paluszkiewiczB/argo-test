@@ -1,0 +1,15 @@
+{{ if .Values.repositories.test }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-private-repo
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  {{- with .Values.repositories.test }}
+  url: {{ .url }}
+  username: {{ .username }}
+  password: {{ .password }}
+  {{- end }}
+{{- end }}

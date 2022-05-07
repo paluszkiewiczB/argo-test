@@ -1,0 +1,7 @@
+argo-cd:
+  server:
+    extraArgs:
+      - "--insecure" # https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/#traefik-v22
+repositories:
+  test:
+    url: "https://gitlab.com/paluszkiewiczHome/argo-test.git"

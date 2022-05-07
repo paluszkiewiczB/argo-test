@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nested-busybox3
+  name: argocd
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://gitlab.com/paluszkiewiczHome/argo-test.git
     targetRevision: HEAD
-    path: test-project/application/busybox3
+    path: test-project/infra/sealed-secrets
   destination:
     server: https://kubernetes.default.svc
     namespace: test-project
@@ -22,17 +22,17 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nested-busybox4
+  name: sealed-secrets
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://gitlab.com/paluszkiewiczHome/argo-test.git
     targetRevision: HEAD
-    path: test-project/application/busybox4
+    path: test-project/infra/sealed-secrets
   destination:
     server: https://kubernetes.default.svc
-    namespace: test-project
+    namespace: secrets
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
