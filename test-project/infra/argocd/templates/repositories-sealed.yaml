@@ -1,0 +1,27 @@
+{
+  "kind": "SealedSecret",
+  "apiVersion": "bitnami.com/v1alpha1",
+  "metadata": {
+    "name": "my-private-repo",
+    "namespace": "argocd",
+    "creationTimestamp": null
+  },
+  "spec": {
+    "template": {
+      "metadata": {
+        "name": "my-private-repo",
+        "namespace": "argocd",
+        "creationTimestamp": null,
+        "labels": {
+          "argocd.argoproj.io/secret-type": "repository"
+        }
+      },
+      "data": null
+    },
+    "encryptedData": {
+      "password": "AgBLFHri0L/UhRhKQt7dSk2HBKb+WigxZ0oyJSkaUb45ze17ylttwbj9PGSpkVeT5P25wOSa6nLwF7uPgKpZ9YvRaLwSeY+3K2VSQ2oyDxQ4PWPF+VnV4B3lL36+aI5PAn/RRq4qNM8/inMFLyhyqXRZKdw1ZR3oPEbyI6rLNnZ5zrPZXoomXHESI9Fy2LQd3KWXlfX7o4KWOOeTUjRewBK6DffHDRMSBrUlLzaDXstUKU9NLI7TZVOcvyeh4TDUrvpkjtB46CmByemhQr6UxTNQlRRsEzh+v9N/IZzmZzMmECMWkhkadNXXVZI1zM88b/eg7FZ4EMJkX5OUNGCxLLG5AfiaSikfZlhP6jXuupH4fmweWXknr8Rkfpue7jEgXzpG3vnlHHon5I2qXqgU7bWcEIoovArbfr6go2mgYZCXOGCKnQuYGrVJ+M7ZOaxh0EuOkwtNZh+D6xCNnUwRHxpEguPPetctk3uY5K8Bc+TWJrfcRiE2UxBMuVP1pywh0RK6sUy31euhNvrXlw3IpBHlj62IM2DBUwHTBZheLf2rmWrWzW5I0vWg5/ZVP/e5EyDZgpsvwCx7bDdpbnwf4dCk/+Ao9a0S1ZcGHkWZaLN+IN0DKqVuvKy0cllx05rs/N38jLuKRWma4jHtgUpdVHUxLC2jNrvWDE0WaMWTL0NF8XSaJuVAhYqrD/BWsTXSDz5lzwFruHGncJQXAZDsl2r4o6eqPw==",
+      "url": "AgA9b6ByRkxz0rOAhQ9aQHUHr35w3Bb5Wydf5I0pqMnRrcrV8IjxE7qHpNHpmG725ms3leP/0lQ0EZTYg37mM3uwj6WGQjIlSJC4fviUKV6V/lis7L8K8YKb3TO/nhJFimsU6CNpi5EiLHf1w/J0bw3xh8iZgEClLqQaIORdTX14/q7LQiV32AuSrLkKE1X0Eziqm/VheOOJFfb0uQqQFll2jxb5l3dh0hk13djEF9DDg6sBE892FaW+dn4M5wicoVao2HBwORVKFIMW5CJwcHi6aQaqTXYmzcK4/iNRyim0pPkORrF7yH6VMj/aJ5QIhehLMwmXWmrCyFrPUNsrwYpsQZnzSNCyZQHkHhLx4o5cYlRm/afu/KzLNzt9d9iaYfQsgjg1aMt3/JRmGJ3BkpUlEUX3LrJ9NzNtH8rJyzncLTiinxcCZVw3kg7gKgFu5+lzD68bo3sOzKH0PcLFzyMHS3BOyrYnw0Q6b3ThLneu85H0v8EwlypVQogBHdCTdFZBo2Wy9lNN6LArFAv3UDiLmtVypqelRCYVR+OCy1vV1sAXPLVOaNTDBOs8T5zgluKpuqlrLB6YDQJIwyZ8drr6/3z5IsvJiGQ9rv2dfwDPna0I1Jk7a0eUnU13wFhvSkhrGevxhfZp/Zl664UJX7WJbywW7hkw9rLEu1FQGvbbTs9yUR1khH3GGqhxktkp44DkOuXfAywJfHIQOK+XX0cJP99yPGj6pwqJLhTriJY0dU2FfJ6WX3/gE0MvLz4gzeFXkg==",
+      "username": "AgCUcxbMt4oqAljO+GAnsGmERCRjvz5V/xmxWt1wLbnUBd8wTNaXNbkNrHtH2KCpNbD9w/6uHPyNakKHGHPVOBDrcIJw4q6S2hkINgQ+XHqC4Y2PMQ4jJfghIDTAluNWeEl8XsU88R1nl68LmJyMbFbGw4a6Kf8pSSsnzg72P1QyFzgAcZWduO3hRiOYWuWm+jwzsXsh/fOFQfG8mu23RM0jn5m6/NRxevAYdC5/KOH9BeC7DLYDNCnicBbIVy72iARl2Y7Layef54d5zF6EVegpvuaC2LHjJN2l2zPTKGCo5xdItky78wCFcZ38WJpBJQUufnFA+s0wNqp52+iCG0VmpVc+YzL9bXKkC4bu96ptV5lydf0L1NxQ9ZVSYMh1Uvsab0F+NzJkTMHHK/JhwwqZWTklLb/y7/4nOYySxAbCskJqToC9DFTK+pj2hInIJ1P6cNb9ZDCXbnZDDO3deJcoEEQBOH6lIPCtBsOlDm3EwwbjBLPMMXfL7yxPbBnVADPdHdsgt9QyuOAgBsmyEkJi4LHdWIqhrZLmoc06b6Y1dKAIvMUuHpUfO/V2cO+T3aYQGMTBbJ9zOgMS/y1f4zKOTSM0QEjLxfe14/gMnWAp9k5in+izoHWreVwbZLNGxo9Gh1oUhiSdYCFg+oOUpEq0ci2lktADXIuqd4hIv+pgq6q7mh4IjUv+AApPtbjo+TQMRrQprko="
+    }
+  }
+}
