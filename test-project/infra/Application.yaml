@@ -8,10 +8,10 @@ spec:
   source:
     repoURL: https://gitlab.com/paluszkiewiczHome/argo-test.git
     targetRevision: HEAD
-    path: test-project/infra/sealed-secrets
+    path: test-project/infra/argocd
   destination:
     server: https://kubernetes.default.svc
-    namespace: test-project
+    namespace: argocd
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
