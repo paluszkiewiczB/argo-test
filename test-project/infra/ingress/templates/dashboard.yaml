@@ -15,10 +15,10 @@ spec:
     - web
   routes:
     - match: Host(`traefik.example.com`) && Path(`/api`)
-        kind: Rule
-        services:
-          - name: api@internal
-            kind: TraefikService
+      kind: Rule
+      services:
+        - name: api@internal
+          kind: TraefikService
     - match: Host(`traefik.example.com`)
       kind: Rule
       services:
