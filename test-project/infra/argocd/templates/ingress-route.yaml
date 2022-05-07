@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: argocd-server
+spec:
+  entryPoints:
+    - web
+  routes:
+    - kind: Rule
+      match: Host(`argo.example.com`) || Host(`argo.example.com`) && Path(`/api`)
+      services:
+        - name: argocd-server
+          port: 443
