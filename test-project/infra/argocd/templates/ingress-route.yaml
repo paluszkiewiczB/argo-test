@@ -10,4 +10,4 @@ spec:
       match: Host(`argo.example.com`) || Host(`argo.example.com`) && Path(`/api`)
       services:
         - name: argocd-server
-          port: 443
+          port: 80
