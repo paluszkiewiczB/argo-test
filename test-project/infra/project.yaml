@@ -20,11 +20,6 @@ spec:
   - namespace: secrets
     server: "https://kubernetes.default.svc"
 
-  # Deny all cluster-scoped resources from being created, except for Namespace
-  clusterResourceWhitelist:
-  - group: ''
-    kind: Namespace
-
   # Allow all namespaced-scoped resources to be created, except for ResourceQuota, LimitRange, NetworkPolicy
   namespaceResourceBlacklist:
   - group: ''
@@ -36,7 +31,7 @@ spec:
 
   # Enables namespace orphaned resource monitoring.
   orphanedResources:
-    warn: false
+    warn: true
 
   roles:
   # A role which provides read-only access to all applications in the project
