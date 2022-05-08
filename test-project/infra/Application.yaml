@@ -4,7 +4,7 @@ metadata:
   name: argocd
   namespace: argocd
 spec:
-  project: default
+  project: infra
   source:
     repoURL: https://gitlab.com/paluszkiewiczHome/argo-test.git
     targetRevision: HEAD
@@ -25,7 +25,7 @@ metadata:
   name: sealed-secrets
   namespace: argocd
 spec:
-  project: default
+  project: infra
   source:
     repoURL: https://gitlab.com/paluszkiewiczHome/argo-test.git
     targetRevision: HEAD
@@ -46,7 +46,7 @@ metadata:
   name: traefik2
   namespace: argocd
 spec:
-  project: default
+  project: infra
   source:
     repoURL: https://gitlab.com/paluszkiewiczHome/argo-test.git
     targetRevision: HEAD
