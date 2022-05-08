@@ -9,42 +9,36 @@ spec:
   description: Project providing infrastructure for applications
 
   sourceRepos:
-  - "https://gitlab.com/paluszkiewiczHome/argo-test.git"
+    - "https://gitlab.com/paluszkiewiczHome/argo-test.git"
 
   # Only permit applications to deploy to the guestbook namespace in the same cluster
   destinations:
-  - namespace: argocd
-    server: "https://kubernetes.default.svc"
-  - namespace: traefik2
-    server: "https://kubernetes.default.svc"
-  - namespace: secrets
-    server: "https://kubernetes.default.svc"
+    - namespace: argocd
+      server: "https://kubernetes.default.svc"
+    - namespace: traefik2
+      server: "https://kubernetes.default.svc"
+    - namespace: secrets
+      server: "https://kubernetes.default.svc"
 
-  # Allow all namespaced-scoped resources to be created, except for ResourceQuota, LimitRange, NetworkPolicy
-  namespaceResourceBlacklist:
-  - group: ''
-    kind: ResourceQuota
-  - group: ''
-    kind: LimitRange
-  - group: ''
-    kind: NetworkPolicy
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
 
   # Enables namespace orphaned resource monitoring.
   orphanedResources:
     warn: true
 
   roles:
-  # A role which provides read-only access to all applications in the project
-  - name: read-only
-    description: Read-only privileges to infra
-    policies:
-    - p, proj:infra:read-only, applications, get, infra/*, allow
-    groups:
-    - my-oidc-group
+    # A role which provides read-only access to all applications in the project
+    - name: read-only
+      description: Read-only privileges to infra
+      policies:
+        - p, proj:infra:read-only, applications, get, infra/*, allow
+      groups:
+        - my-oidc-group
 
-  # A role which provides sync privileges to all  applications in the project, e.g. to provide
-  # sync privileges to a CI system
-  - name: ci-role
-    description: Sync privileges for guestbook-dev
-    policies:
-    - p, proj:infra:ci-role, applications, sync, infra/*, allow
+    # A role which provides sync privileges to all  applications in the project, e.g. to provide sync privileges to a CI system
+    - name: ci-role
+      description: Sync privileges for guestbook-dev
+      policies:
+        - p, proj:infra:ci-role, applications, sync, infra/*, allow
