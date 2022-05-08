@@ -16,7 +16,7 @@ spec:
   - namespace: argocd
     server: "https://kubernetes.default.svc"
   - namespace: traefik2
-      server: "https://kubernetes.default.svc"
+    server: "https://kubernetes.default.svc"
   - namespace: secrets
     server: "https://kubernetes.default.svc"
 
