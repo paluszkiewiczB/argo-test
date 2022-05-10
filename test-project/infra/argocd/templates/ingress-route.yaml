@@ -1,13 +1,4 @@
 apiVersion: traefik.containo.us/v1alpha1
-kind: Middleware
-metadata:
-  name: strip-argo-prefix
-spec:
-  stripPrefix:
-    prefixes:
-      - /argo
----
-apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: argocd-server
@@ -16,9 +7,7 @@ spec:
     - web
   routes:
     - kind: Rule
-      match: PathPrefix(`/argo`)
+      match: Host(`argo.example.com`) || Host(`argo.example.com`) && Path(`/api`)
       services:
         - name: argocd-server
           port: 80
-      middleware:
-        - strip-argo-prefix
