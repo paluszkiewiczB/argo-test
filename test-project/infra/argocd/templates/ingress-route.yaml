@@ -21,4 +21,4 @@ spec:
         - name: argocd-server
           port: 80
       middlewares:
-        - name: strip-argo-prefix
+        - strip-argo-prefix
