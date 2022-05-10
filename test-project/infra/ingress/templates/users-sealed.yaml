@@ -1,0 +1,22 @@
+{
+  "kind": "SealedSecret",
+  "apiVersion": "bitnami.com/v1alpha1",
+  "metadata": {
+    "name": "traefik-ingress-basic-auth",
+    "namespace": "traefik2",
+    "creationTimestamp": null
+  },
+  "spec": {
+    "template": {
+      "metadata": {
+        "name": "traefik-ingress-basic-auth",
+        "namespace": "traefik2",
+        "creationTimestamp": null
+      },
+      "data": null
+    },
+    "encryptedData": {
+      "users": "AgBIO5sE3b6zTnEjVCsNNH8Y0tcN2karyEupsXQzq8ayGoONvUTTO+w28YW3UqrBJY+HsSzkenrmQM7Mq6TGRZkEqj9FkR9nsfsA46hsCLvBflUT8+16y6HpC7gXZgcRgOhupJe/dbuTOo1H3VIJwt5ehi+AgsOLt4WvGzcCsGYWxOT7p8aMoQ5bDbCbkSlX3R6oG5KizTZ659FWZb7fsvifhElkZWsBbJbVTd/UHXR/CqAyF6o+DXyMFSchFPCtPsXf+5mXLCBTggC1mAU8q2Kxs/rmmEv5M8quM53QTjvgSdUz5pdyj8n46O5GbUuXujHATVk/FD7ZAFqdTD32S6gfxbtF6Npz5sN88daJTCUv7Z4kiqTfgl+rML8NLly+gYqD1s4F5vbc6gvwDDVpWgCrYpZ2idqxxIpA3+TEAlXLu16vmAnBxFTzblR4NNWhekrl0RFtadwBWanTTgDL3RCNFnG9pFzGDpNoz30DPQ+Y8M41JHamSe8tKVaWa9mN5HZ8ozSvBiFyHMhcQOsl5UDo338SOdpAI2YA/ZK3DOtEJy2ChC99I926kX9V0HmAhhHIxXApVSrZjAl+GGbP3fPbu/b5JETIULDcyLf8Xmjxno8M7FKGZUeyNxe5Ghs8GpcGX9YV8eM0xrUUllXs8N6j7gZ2Fr2aJY0U1V5zNsepR6Rhfpojb+NvldIdo+XNS2BbJZFbqugqVdbKgtakkpwCUvCNn9IBbZMghpnAcVr2ovIe/vFiuhCe+hjEZciLXcUTz6+XHzlkOnrIaiV42w1hCmAFEyQ="
+    }
+  }
+}
