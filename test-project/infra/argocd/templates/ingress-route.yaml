@@ -16,7 +16,7 @@ spec:
     - web
   routes:
     - kind: Rule
-      match: Host(`example.com`) && PathPrefix(`/argo`) || Host(`example.com`) && PathPrefix(`/path/api`)
+      match: Host(`example.com`) && PathPrefix(`/argo`)
       services:
         - name: argocd-server
           port: 80
