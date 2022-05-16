@@ -74,7 +74,7 @@ spec:
     path: test-project/infra/vault
   destination:
     server: https://kubernetes.default.svc
-    namespace: vault
+    namespace: secrets
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
