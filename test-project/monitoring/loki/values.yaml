@@ -3,3 +3,5 @@ loki-simple-scalable:
     replicas: 1
   write:
     replicas: 1
+  minio:
+    enabled: true
