@@ -1,6 +1,6 @@
 grafana:
   enabled: true
-  namespaceOverride: "grafana"
+  namespaceOverride: "monitoring"
   # set pspUseAppArmor to false to fix Grafana pod Init errors
   rbac:
     pspUseAppArmor: false
