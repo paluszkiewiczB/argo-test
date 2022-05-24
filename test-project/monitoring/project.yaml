@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: infra
+  name: monitoring
   namespace: monitoring
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -27,9 +27,9 @@ spec:
   roles:
     # A role which provides read-only access to all applications in the project
     - name: read-only
-      description: Read-only privileges to infra
+      description: Read-only privileges to monitoring
       policies:
-        - p, proj:infra:read-only, applications, get, infra/*, allow
+        - p, proj:monitoring:read-only, applications, get, monitoring/*, allow
       groups:
         - my-oidc-group
 
@@ -37,4 +37,4 @@ spec:
     - name: ci-role
       description: Sync privileges for guestbook-dev
       policies:
-        - p, proj:infra:ci-role, applications, sync, infra/*, allow
+        - p, proj:monitoring:ci-role, applications, sync, monitoring/*, allow
