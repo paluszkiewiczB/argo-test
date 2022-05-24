@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://gitlab.com/paluszkiewiczHome/argo-test.git
     targetRevision: HEAD
-    path: test-project/monitoring/grafana
+    path: test-project/monitoring/argocd
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
