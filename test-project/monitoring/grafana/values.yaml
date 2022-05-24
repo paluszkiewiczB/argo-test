@@ -1,0 +1,44 @@
+grafana:
+  enabled: true
+  namespaceOverride: "grafana"
+  # set pspUseAppArmor to false to fix Grafana pod Init errors
+  rbac:
+    pspUseAppArmor: false
+  grafana.ini:
+    server:
+      domain: grafana.example.com
+      #root_url: "%(protocol)s://%(domain)s/"
+      root_url: http://grafana.example.com/
+      serve_from_sub_path: true
+
+  ## Deploy default dashboards.
+  ##
+  defaultDashboardsEnabled: true
+
+  adminPassword: prom-operator
+
+  ingress:
+    ## If true, Grafana Ingress will be created
+    ##
+    enabled: false
+
+    ## Annotations for Grafana Ingress
+    ##
+    annotations: {}
+      # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+
+    ## Labels to be added to the Ingress
+    ##
+    labels: {}
+
+    ## Hostnames.
+    ## Must be provided if Ingress is enable.
+    ##
+    # hosts:
+    #   - grafana.domain.com
+    hosts:
+      - grafana.example.com
+
+    ## Path for grafana ingress
+    path: /

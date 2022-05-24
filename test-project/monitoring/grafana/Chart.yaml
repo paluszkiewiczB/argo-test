@@ -1,0 +1,10 @@
+apiVersion: v2
+name: argocd
+description: Preconfigured Grafana
+type: application
+version: 0.1.0
+appVersion: "8.2.5"
+dependencies:
+  - name: grafana
+    version: 6.29.4
+    repository: https://grafana.github.io/helm-charts
