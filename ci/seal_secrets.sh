@@ -18,21 +18,33 @@ function findSecrets() {
   done
 }
 
+function sealSecrets() {
+  for template in "${!secrets[@]}"; do
+    output="${secrets[$template]}"
+    echo "Sealing file: '$template' and saving output to: '$output'"
+    kubeseal --cert "$public_key_location" --secret-file "$template" --sealed-secret-file "$output"
+  done
+}
+
+function downloadSealingCert() {
+  public_key_location="test-project/infra/sealed-secrets/cert/cert.pem"
+  kubeseal --controller-name sealed-secrets --controller-namespace secrets --fetch-cert >"$public_key_location"
+  echo "Sealing key stored in: $public_key_location"
+}
+
+function removeCreationTimestamp() {
+  for secret in "${secrets[@]}"; do
+    sed -i '/creationTimestamp: null/d' "$secret"
+  done
+}
+
 findSecrets
 
 if [ ${#secrets[@]} -eq 0 ]; then
-    echo "No secrets to seal, finishing"
-    exit 0
+  echo "No secrets to seal, finishing"
+  exit 0
 fi
 
-# download current sealing key
-public_key_location="test-project/infra/sealed-secrets/cert/cert.pem"
-kubeseal --controller-name sealed-secrets --controller-namespace secrets --fetch-cert >"$public_key_location"
-echo "Sealing key stored in: $public_key_location"
-
-
-for template in "${!secrets[@]}"; do
-  output="${secrets[$template]}"
-  echo "Sealing file: '$template' and saving output to: '$output'"
-  kubeseal --cert "$public_key_location" --secret-file "$template" --sealed-secret-file "$output"
-done
+downloadSealingCert
+sealSecrets
+removeCreationTimestamp
