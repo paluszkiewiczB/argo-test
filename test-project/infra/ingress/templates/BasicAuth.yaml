@@ -1,8 +1,0 @@
-apiVersion: traefik.containo.us/v1alpha1
-kind: Middleware
-metadata:
-  name: test-auth
-  namespace: traefik2
-spec:
-  basicAuth:
-    secret: traefik-ingress-basic-auth

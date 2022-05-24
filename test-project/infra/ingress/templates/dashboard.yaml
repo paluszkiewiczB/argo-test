@@ -2,7 +2,6 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: dashboard
-  namespace: traefik2
 spec:
   entryPoints:
     - web
@@ -12,5 +11,3 @@ spec:
       services:
         - name: api@internal
           kind: TraefikService
-      middlewares:
-        - name: test-auth
