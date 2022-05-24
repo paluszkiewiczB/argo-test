@@ -5,6 +5,7 @@ metadata:
   name: grafana
   namespace: monitoring
 spec:
+  project: default
   source:
     repoURL: https://gitlab.com/paluszkiewiczHome/argo-test.git
     targetRevision: HEAD
