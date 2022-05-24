@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - web
   routes:
-    - match: Host(`{{ index ".Values.grafana" ".grafana.ini" "server.domain" }}`)
+    - match: Host(`{{ index .Values "grafana" "grafana.ini" "server" "domain" }}`)
       kind: Rule
       services:
         - kind: Service
