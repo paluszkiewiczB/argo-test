@@ -1,0 +1,6 @@
+dependencies:
+- name: loki-simple-scalable
+  repository: https://grafana.github.io/helm-charts
+  version: 1.0.0
+digest: sha256:fd82e83bef8df008a0a9e1c4044c043f9f4dc36802368de9de7c7c1e369c994c
+generated: "2022-05-25T01:17:31.419453076+02:00"
