@@ -5,11 +5,10 @@ metadata:
   name: grafana
   namespace: monitoring
 spec:
-  project: monitoring
   source:
     repoURL: https://gitlab.com/paluszkiewiczHome/argo-test.git
     targetRevision: HEAD
-    path: test-project/monitoring/argocd
+    path: test-project/monitoring/grafana
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
