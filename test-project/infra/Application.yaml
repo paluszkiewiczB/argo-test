@@ -64,6 +64,8 @@ kind: Application
 metadata:
   name: vault
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: infra
   source:
