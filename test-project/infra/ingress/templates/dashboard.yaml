@@ -6,7 +6,7 @@ spec:
   entryPoints:
     - web
   routes:
-    - match: Host(`traefik.example.com`) || Host(`traefik.example.com`) && Path(`/api`)
+    - match: Host(`{{ .Values.domain }}`) || Host(`{{ .Values.domain }}`) && Path(`/api`)
       kind: Rule
       services:
         - name: api@internal

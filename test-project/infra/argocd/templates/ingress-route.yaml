@@ -7,7 +7,7 @@ spec:
     - web
   routes:
     - kind: Rule
-      match: Host(`argo.example.com`) || Host(`argo.example.com`) && Path(`/api`)
+      match: Host(`{{ .Values.domain }}`) || Host(`{{ .Values.domain }}`) && Path(`/api`)
       services:
         - name: argocd-server
           port: 80
