@@ -39,6 +39,6 @@ spec:
 
     # A role which provides sync privileges to all  applications in the project, e.g. to provide sync privileges to a CI system
     - name: ci-role
-      description: Sync privileges for guestbook-dev
+      description: Sync privileges for infra
       policies:
         - p, proj:infra:ci-role, applications, sync, infra/*, allow
