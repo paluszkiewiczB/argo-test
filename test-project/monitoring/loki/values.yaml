@@ -5,3 +5,5 @@ loki-simple-scalable:
     replicas: 3
   minio:
     enabled: true
+promtail:
+  livenessProbe: {}
