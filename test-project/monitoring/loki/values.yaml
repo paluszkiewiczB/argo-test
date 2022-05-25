@@ -6,4 +6,7 @@ loki-simple-scalable:
   minio:
     enabled: true
 promtail:
-  livenessProbe: {}
+  loki:
+    serviceName: "loki-gateway"
+    servicePort: 3100
+    serviceScheme: http
