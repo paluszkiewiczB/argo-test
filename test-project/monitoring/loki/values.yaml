@@ -10,3 +10,15 @@ promtail:
     serviceName: "loki-gateway"
     servicePort: 3100
     serviceScheme: http
+  extraScrapeConfigs:
+    - job_name: journal
+      journal:
+        path: /var/log/journal
+        max_age: 1h
+        labels:
+          job: systemd-journal
+      relabel_configs:
+        - source_labels: [ '__journal__systemd_unit' ]
+          target_label: 'unit'
+        - source_labels: [ '__journal__hostname' ]
+          target_label: 'hostname'
