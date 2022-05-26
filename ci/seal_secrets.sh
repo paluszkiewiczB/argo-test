@@ -48,3 +48,6 @@ fi
 downloadSealingCert
 sealSecrets
 removeCreationTimestamp
+
+git add "${secrets[@]}"
+git commit -m "[CI] seal secrets"
