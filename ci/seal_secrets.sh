@@ -6,6 +6,15 @@ set -e
 # secrets must be stored in directory 'secrets'
 # sealed secret will be written to directory 'templates' in the same directory as secrets
 # output file will have suffix '-sealed', e.g. 'passwords.yaml' -> 'passwords-sealed.yaml'
+#
+# required directory structure:
+#
+#  parent_directory
+#    |- secrets
+#    |   |- passwords.yaml          <- this is input
+#    |- templates
+#    |   |- passwords-sealed.yaml   <- this is output
+#
 declare -A secrets
 function findSecrets() {
   for template_key in $(find . -path "*/secrets/*.yaml"); do
