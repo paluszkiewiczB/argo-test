@@ -5,7 +5,7 @@ metadata:
   name: grafana
   namespace: argocd
 spec:
-  project: default
+  project: monitoring
   source:
     repoURL: https://gitlab.com/paluszkiewiczHome/argo-test.git
     targetRevision: HEAD
@@ -24,7 +24,7 @@ metadata:
   name: loki
   namespace: argocd
 spec:
-  project: default
+  project: monitoring
   source:
     repoURL: https://gitlab.com/paluszkiewiczHome/argo-test.git
     targetRevision: HEAD
