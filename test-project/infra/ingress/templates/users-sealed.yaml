@@ -1,0 +1,16 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: my-private-repo-sealed
+  namespace: argocd
+spec:
+  encryptedData:
+    users: AgAhyPDKQRS1diMO62ZOXDU7LTIqbqeaETKtbno7CxfEtwI/BcOs8LpcBY1fg9YuYpue8Fj2Vhld6jUGZ6AE9vTieQ7TSG3EaRrLHd/CQTBjcP/our7JbITdak3J5TvI3DyOCp7jyGtr97FBD6X33agN0Csh5E18uYwIO4gpTPK8JJhtKWzxv8tC7Syd8XO+LphsjWwzfcjUlIoJvugYjOsHbtD9H3NyslMGjJqedxItoNLYI60FCnb6mvaQVoAMIaXnF1Dn3PTyqJMf2P+UgPsUI+CMjGr9c7s5H3SryGilhmnw7CY3rZKtfL8bh3n9oCv1zyhCaInxhaXfGsey0bUfjIawfQR7pTeVZispGPynujNDEJ7kHn/oonehWmfD9IoFpOs75aczBMrJWzHz8LVw2rI61Ri9/VkHY3EpCDlpsX4NjPMDCw9pmnjhWHTBJZ7vW43WXeLATqe90Sz8PUEdaaM5gH38hUu/Tfp8lkyGiWc9XxvBMI7448LM0V2md7A8VwX1VdZE+7flOwXkzcSUEfXiRYmRAth5CT2xQsnWjeC/69lmv9VdlaDOqXSqXospj02f+HNlCJjIECW0MLqsL9q1mSO1nh8w2b5egDZEtvwuaTWF2CZl9RO7kCn/QHM9OhxLYyUSg4537q2nElWPdTlrzrLe0WmCKmZK2XQ/zbMpCl0/0CGHJex+E28ogTfw8U/MjQDCAXWLPtZGNhzuHw==
+  template:
+    data: null
+    metadata:
+      labels:
+        argocd.argoproj.io/secret-type: repository
+      name: my-private-repo-sealed
+      namespace: argocd
+
