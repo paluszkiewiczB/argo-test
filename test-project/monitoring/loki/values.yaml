@@ -1,10 +1,38 @@
-loki-simple-scalable:
-  read:
-    replicas: 1
-  write:
-    replicas: 1
-  minio:
+ loki-distributed:
+  fullnameOverride: loki
+  loki:
+    config: {{ .Files.Get "config/loki.yaml" }}
+  ruler:
     enabled: true
+    directories:
+      loki_alerts:
+        rules.txt: |                                 # Sample alerting-rule using LogQL
+          groups:
+            - name: loki-test-group                  # rule group
+              rules:
+                - alert: RandomLokiTesting           # alert-name
+                  expr: sum by (throughput) (rate({component="ruler"}[2m])) < 10       # LogQL expression to evaluate
+                  for: 2m                            # duration for which LogQL expression should evaluate to true
+                  labels:
+                    severity: warning
+                    team: devops
+                    category: logs
+                  annotations:
+                    title: "Low ThroughPut Alert"
+                    description: "Ruler has low throughput"
+                    dashboard: "https://grafana.com/grafana/dashboards/"
+                    runbook: "https://runbooks.prometheus-operator.dev"
+                    logurl: "https://grafana.com/loki"
+  ingester:
+    persistence:
+      enabled: true
+      size: 1Gi
+  querier:
+    persistence:
+      enabled: true
+      size: 1Gi
+
+
 promtail:
   loki:
     serviceName: "loki-gateway"
