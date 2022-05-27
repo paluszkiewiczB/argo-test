@@ -37,3 +37,22 @@ spec:
       selfHeal: true
       prune: true
 ---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus
+  namespace: argocd
+spec:
+  project: monitoring
+  source:
+    repoURL: https://gitlab.com/paluszkiewiczHome/argo-test.git
+    targetRevision: HEAD
+    path: test-project/monitoring/prometheus
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+---
