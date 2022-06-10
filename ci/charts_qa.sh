@@ -1,9 +1,17 @@
 #!/bin/bash
+# Script checks whether all the Helm charts have lock file
+# Arg $1 is path to directory to scan
 
 set -e
 
+toScan=$1
+if [ -z "$toScan" ]; then
+  toScan=$(pwd)
+  echo "Directory to scan not specified, defaulting to $toScan"
+fi
+
 chart_dirs=()
-for chart_file in $(find ../ -path "*/Chart.yaml"); do
+for chart_file in $(find "$toScan" -path "*/Chart.yaml"); do
   chart_dirs+=("$(dirname "$chart_file")")
 done
 

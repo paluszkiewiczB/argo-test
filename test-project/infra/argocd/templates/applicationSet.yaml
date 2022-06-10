@@ -2,10 +2,11 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: test-project
+  namespace: argocd
 spec:
   generators:
     - git:
-        repoURL: {{ .Values.repositories.test.url }}
+        repoURL: "{{ .Values.repositories.test.url }}"
         revision: HEAD
         directories:
           - path: test-project/*
