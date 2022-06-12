@@ -17,14 +17,15 @@ set -o pipefail
 #    |   |- passwords-sealed.yaml   <- this is output
 #
 function findSecrets() {
-  while IFS= read -r -d '' template_key; do
-    local secretsDir secretsParent file_name_no_extension output
-    secretsDir="$(dirname "$template_key")"
-    secretsParent="$(dirname "$secretsDir")"
+  shopt -s globstar nullglob
+  for template_key in **/secrets/*.yaml; do
+    secrets_dir="$(dirname "$template_key")"
+    secrets_parent="$(dirname "$secrets_dir")"
     file_name_no_extension="$(basename "$template_key" ".yaml")"
-    output="$secretsParent/templates/$file_name_no_extension-sealed.yaml"
+    output="$secrets_parent/templates/$file_name_no_extension-sealed.yaml"
+    echo "'$output'"
     secrets[$template_key]="$output"
-  done < <(find . -path "*/secrets/*.yaml")
+  done
 }
 
 function sealSecrets() {
@@ -57,6 +58,7 @@ if [ ${#secrets[@]} -eq 0 ]; then
   exit 0
 fi
 
+#TODO https://gitlab.com/paluszkiewiczHome/argo-test/-/issues/1
 downloadSealingCert
 sealSecrets
 removeCreationTimestamp

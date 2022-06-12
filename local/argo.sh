@@ -63,7 +63,7 @@ fi
 credentialsFile="secrets/repo.txt"
 declare -A credentials
 readRepoConfig "$credentialsFile" credentials
-repositoryOutput="$(dirname "$credentialsFile")/repository-filled.yaml"
+repositoryOutput="$(dirname "$credentialsFile")/repository-filled.values"
 
 REPO_URL=${credentials["url"]}
 REPO_USR=${credentials["user"]}
