@@ -4,6 +4,7 @@
 # Arg $2 is required namespace
 
 set -e
+set -o pipefail
 
 toScan=$1
 if [ -z "$toScan" ]; then
@@ -19,6 +20,7 @@ fi
 
 
 function require_ns_for_argocd_manifests() {
+  local testedFile
   testedFile=$1
   #FIXME test-project/infra/argocd/templates/applicationSet.yaml': yaml: line 14: did not find expected key
   isArgo=$(yq e "[.] | map(select(.apiVersion==\"argoproj.io/v1alpha1\")) | map(.metadata.namespace)" "$toScan")

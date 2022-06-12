@@ -3,6 +3,7 @@
 # Arg $1 is path to directory to scan
 
 set -e
+set -o pipefail
 
 toScan=$1
 if [ -z "$toScan" ]; then

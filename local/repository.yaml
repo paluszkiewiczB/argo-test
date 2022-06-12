@@ -1,0 +1,14 @@
+# values for argo-cd Helm chart which will deploy argo with pre-defined repository
+argo-cd:
+  extraArgs:
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: helm-installed-repository
+      namespace: argocd
+      labels:
+        argocd.argoproj.io/secret-type: repository
+    stringData:
+      url: "$REPO_URL"
+      username: "$REPO_USR"
+      password: "$REPO_PWD"

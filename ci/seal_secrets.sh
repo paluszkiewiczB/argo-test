@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+set -o pipefail
 
 # define list of secrets to seal
 # secrets must be stored in directory 'secrets'
@@ -15,30 +16,31 @@ set -e
 #    |- templates
 #    |   |- passwords-sealed.yaml   <- this is output
 #
-declare -A secrets
 function findSecrets() {
-  for template_key in $(find . -path "*/secrets/*.yaml"); do
-    secrets_dir="$(dirname "$template_key")"
-    secrets_parent="$(dirname "$secrets_dir")"
+  while IFS= read -r -d '' template_key; do
+    local secretsDir secretsParent file_name_no_extension output
+    secretsDir="$(dirname "$template_key")"
+    secretsParent="$(dirname "$secretsDir")"
     file_name_no_extension="$(basename "$template_key" ".yaml")"
-    output="$secrets_parent/templates/$file_name_no_extension-sealed.yaml"
-    echo "'$output'"
+    output="$secretsParent/templates/$file_name_no_extension-sealed.yaml"
     secrets[$template_key]="$output"
-  done
+  done < <(find . -path "*/secrets/*.yaml")
 }
 
 function sealSecrets() {
   for template in "${!secrets[@]}"; do
+    local output
     output="${secrets[$template]}"
     echo "Sealing file: '$template' and saving output to: '$output'"
-    kubeseal --cert "$public_key_location" --secret-file "$template" --sealed-secret-file "$output"
+    kubeseal --cert "$publicKeyLocation" --secret-file "$template" --sealed-secret-file "$output"
   done
 }
 
 function downloadSealingCert() {
-  public_key_location="test-project/infra/sealed-secrets/cert/cert.pem"
-  kubeseal --controller-name sealed-secrets --controller-namespace secrets --fetch-cert >"$public_key_location"
-  echo "Sealing key stored in: $public_key_location"
+  local publicKeyLocation
+  publicKeyLocation="test-project/infra/sealed-secrets/cert/cert.pem"
+  kubeseal --controller-name sealed-secrets --controller-namespace secrets --fetch-cert >"$publicKeyLocation"
+  echo "Sealing key stored in: $publicKeyLocation"
 }
 
 function removeCreationTimestamp() {
@@ -47,6 +49,7 @@ function removeCreationTimestamp() {
   done
 }
 
+declare -A secrets
 findSecrets
 
 if [ ${#secrets[@]} -eq 0 ]; then
