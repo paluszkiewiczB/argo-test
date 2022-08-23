@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: test-project
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: "{{ .Values.repositories.test.url }}"
+        revision: HEAD
+        directories:
+          - path: test-project/*
+  template:
+    metadata:
+      name: "{{"{{"}}path.basename}}"
+    spec:
+      project: default
+      source:
+        repoURL: "{{ .Values.repositories.test.url }}"
+        targetRevision: HEAD
+        path: "{{"{{"}}path}}"
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: test-project
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true
