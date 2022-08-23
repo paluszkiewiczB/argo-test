@@ -38,7 +38,6 @@ function sealSecrets() {
 }
 
 function downloadSealingCert() {
-  local publicKeyLocation
   publicKeyLocation="test-project/infra/sealed-secrets/cert/cert.pem"
   kubeseal --controller-name sealed-secrets --controller-namespace secrets --fetch-cert >"$publicKeyLocation"
   echo "Sealing key stored in: $publicKeyLocation"
