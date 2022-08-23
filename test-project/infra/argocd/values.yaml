@@ -5,3 +5,5 @@ argo-cd:
 repositories:
   test:
     url: "https://gitlab.com/paluszkiewiczHome/argo-test.git"
+
+domain: "argo.example.com"
